@@ -2,12 +2,13 @@ import { REST, Routes, Collection } from "discord.js";
 import fg from 'fast-glob'
 import { useAppStore } from '@/store/app'
 
+//settingup url to DC sever
 const updateSlashCommands = async(commands) => {
     const rest = new REST({version: 10})
         .setToken(process.env.TOKEN)
     
     const result = await rest.put(
-        Routes.applicationGuildCommands(/*application ID*/process.env.APPLICATION_ID, /*guilt ID*/'805105837815103508'),
+        Routes.applicationGuildCommands(/*application ID*/process.env.APPLICATION_ID, /*guild ID*/process.env.GULID_ID),
         {
             body: commands,
         },
